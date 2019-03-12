@@ -1,10 +1,10 @@
 <template>
     <v-app id="inspire">
         <v-navigation-drawer v-model="drawer" clipped fixed app ><drawer-left /></v-navigation-drawer>
-        <v-toolbar app fixed clipped-left color="teal lighten-1" dark>
+        <v-toolbar app fixed clipped-left color="blue" dark>
             <v-toolbar-side-icon id="side-btn" @click.stop="drawer = !drawer"></v-toolbar-side-icon>
             <v-spacer></v-spacer>
-            <v-toolbar-title class="hdr-text" @click="serverDialog = true" :class="{uif: updateInfoFailed}">{{ hostname || activeServer}}</v-toolbar-title>
+            <!--<v-toolbar-title class="hdr-text" @click="serverDialog = true" :class="{uif: updateInfoFailed}">{{ hostname || activeServer}}</v-toolbar-title>-->
 
             <v-spacer></v-spacer>
 

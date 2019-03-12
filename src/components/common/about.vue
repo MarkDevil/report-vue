@@ -1,11 +1,11 @@
 <template>
     <v-dialog v-model="dialog" max-width="480px" >
         <v-card>
-            <v-card-title class="headline " primary-title > About Sysmon </v-card-title>
+            <v-card-title class="headline " primary-title > </v-card-title>
             <v-card-text>
-                Sysmon is a B/S mode system monitor tool. Created by lightimehpq@gmail.com.
+                Created by lightimehpq@gmail.com.
             </v-card-text>
-            <v-btn outline large color="black" href="https://github.com/Lt0/sysmon" target="blank">Github &ensp;<icon style="font-size: 2em">github</icon></v-btn>
+            <v-btn outline large color="black" href="" target="blank">Github &ensp;<icon style="font-size: 2em">github</icon></v-btn>
             <br><br><br>
             <v-divider></v-divider>
             <v-card-actions>

@@ -1,9 +1,10 @@
 <template>
     <div class="chart-hdr">
-            <div class="chart-hdr-title">
-                <h3>{{ title }}</h3>
-            </div>
-            <selection :items="items" :selectedItems='selectionSelectedItems' :defaultItemNum='defaultItemNum' @input="$emit('input', $event)" :dataKey='dataKey' />            
+        <div class="chart-hdr-title">
+            <h3>{{ title }}</h3>
+        </div>
+        <selection :items="items" :selectedItems='selectionSelectedItems' :defaultItemNum='defaultItemNum'
+                   @input="$emit('input', $event)" :dataKey='dataKey'/>
     </div>
 </template>
 
