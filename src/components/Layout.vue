@@ -5,7 +5,6 @@
             <v-toolbar-side-icon id="side-btn" @click.stop="drawer = !drawer"></v-toolbar-side-icon>
             <v-spacer></v-spacer>
             <!--<v-toolbar-title class="hdr-text" @click="serverDialog = true" :class="{uif: updateInfoFailed}">{{ hostname || activeServer}}</v-toolbar-title>-->
-
             <v-spacer></v-spacer>
 
             <more />
@@ -24,11 +23,11 @@
             </v-container>
         </v-content>
 
-        <!-- <v-footer app fixed>
-            <div>&copy; lightimehpq@gmail.com</div>
-        </v-footer> -->
-
-        <!--<about v-model="aboutDialog" />-->
+        <v-footer color="blue" app fixed>
+            <v-layout justify-center
+                      row
+                      wrap>Power by mamingfeng007@gmail.com</v-layout>
+        </v-footer>
         <v-dialog v-model="serverDialog" width='400px'>
         	<v-card>
         		<server-info :hostname="hostname" :server="activeServer"></server-info>
@@ -49,9 +48,9 @@ export default {
     name: 'Layout',
     components: {
         DrawerLeft,
-        more, 
-        serverInfo, 
-        confirmBtns, 
+        more,
+        serverInfo,
+        confirmBtns,
     },
     data () {
         return {

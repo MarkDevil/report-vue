@@ -1,6 +1,8 @@
 <template>
     <div>
-        <v-data-table v-model="selected" :headers="headers" :items="desserts">
+        <!--<v-data-table v-model="selected" :headers="headers" :items="desserts">-->
+        <!--</v-data-table>-->
+        <v-data-table :headers="headers" :itemscope="desserts">
 
 
         </v-data-table>
@@ -24,11 +26,11 @@
                     align: 'left',
                     value: 'name'
                 },
-                { text: 'Calories', value: 'calories' },
-                { text: 'Fat (g)', value: 'fat' },
-                { text: 'Carbs (g)', value: 'carbs' },
-                { text: 'Protein (g)', value: 'protein' },
-                { text: 'Iron (%)', value: 'iron' }
+                {text: 'Calories', value: 'calories'},
+                {text: 'Fat (g)', value: 'fat'},
+                {text: 'Carbs (g)', value: 'carbs'},
+                {text: 'Protein (g)', value: 'protein'},
+                {text: 'Iron (%)', value: 'iron'}
             ],
             desserts: [
                 {
@@ -115,11 +117,11 @@
         }),
 
         methods: {
-            toggleAll () {
+            toggleAll() {
                 if (this.selected.length) this.selected = []
                 else this.selected = this.desserts.slice()
             },
-            changeSort (column) {
+            changeSort(column) {
                 if (this.pagination.sortBy === column) {
                     this.pagination.descending = !this.pagination.descending
                 } else {
