@@ -2,7 +2,6 @@
     <v-data-table
         :headers="headers"
         :items="desserts"
-        class="elevation-1"
     >
         <template v-slot:items="props">
             <td class="text-xs-left">{{ props.item.name }}</td>

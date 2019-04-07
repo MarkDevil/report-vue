@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <v-container fluid>
         <ReportTable></ReportTable>
-    </div>
+    </v-container>
 </template>
 
 <script>
