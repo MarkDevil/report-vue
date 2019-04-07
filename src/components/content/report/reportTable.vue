@@ -1,12 +1,19 @@
-<template>
-    <div>
-        <!--<v-data-table v-model="selected" :headers="headers" :items="desserts">-->
-        <!--</v-data-table>-->
-        <v-data-table :headers="headers" :itemscope="desserts">
+<template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
+    <v-data-table
+        :headers="headers"
+        :items="desserts"
+        class="elevation-1"
+    >
+        <template v-slot:items="props">
+            <td class="text-xs-left">{{ props.item.name }}</td>
+            <td class="text-xs-left ">{{ props.item.calories }}</td>
+            <td class="text-xs-left">{{ props.item.fat }}</td>
+            <td class="text-xs-left">{{ props.item.carbs }}</td>
+            <td class="text-xs-left">{{ props.item.protein }}</td>
+            <td class="text-xs-left">{{ props.item.iron }}</td>
+        </template>
 
-
-        </v-data-table>
-    </div>
+    </v-data-table>
 </template>
 
 <script>

@@ -112,7 +112,6 @@ export default {
 	setActiveServer,
 	delServer,
 	clearServers,
-	
 	getHostname,
 	getActiveHostname,
 	getHostnames,
