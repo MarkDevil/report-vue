@@ -1,5 +1,5 @@
 <template>
-    <v-container fluid>
+    <v-container fluid id="rsc">
         <ReportTable></ReportTable>
     </v-container>
 </template>
@@ -23,7 +23,7 @@ export default {
 <style scoped>
 #rsc{
     width: 99.5%;
-    padding: 2em 0 0 0;
+    height: 100%;
 }
 .item-flex{
     padding: 0 1em 5em 1em;

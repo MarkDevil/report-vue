@@ -10,7 +10,12 @@
             <td class="text-xs-left">{{ props.item.carbs }}</td>
             <td class="text-xs-left">{{ props.item.protein }}</td>
             <td class="text-xs-left">{{ props.item.iron }}</td>
+            <td>
+                <v-btn color="success" @click="execute">执行</v-btn>
+                <v-btn color="error" @click="deleteItem">删除</v-btn>
+            </td>
         </template>
+
 
     </v-data-table>
 </template>
@@ -36,7 +41,8 @@
                 {text: 'Fat (g)', value: 'fat'},
                 {text: 'Carbs (g)', value: 'carbs'},
                 {text: 'Protein (g)', value: 'protein'},
-                {text: 'Iron (%)', value: 'iron'}
+                {text: 'Iron (%)', value: 'iron'},
+                {text: 'Operator', align: 'center',value: ''},
             ],
             desserts: [
                 {
@@ -134,6 +140,11 @@
                     this.pagination.sortBy = column
                     this.pagination.descending = false
                 }
+            },
+            execute(){
+
+            },
+            deleteItem(){
             }
         }
     }
