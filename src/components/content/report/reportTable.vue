@@ -11,8 +11,15 @@
             <td class="text-xs-left">{{ props.item.protein }}</td>
             <td class="text-xs-left">{{ props.item.iron }}</td>
             <td>
-                <v-btn color="success" @click="execute">执行</v-btn>
-                <v-btn color="error" @click="deleteItem">删除</v-btn>
+                <div class="text-xs-center">
+                    <v-btn color="success" @click="execute">执行
+                        <v-icon dark right>check_circle</v-icon>
+                    </v-btn>
+                    <v-btn color="error" @click="deleteItem">删除
+                        <v-icon dark right>block</v-icon>
+                    </v-btn>
+                </div>
+
             </td>
         </template>
 

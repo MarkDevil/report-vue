@@ -3,10 +3,7 @@
         <v-navigation-drawer v-model="drawer" clipped fixed app ><drawer-left /></v-navigation-drawer>
         <v-toolbar app fixed clipped-left color="blue" dark>
             <v-toolbar-side-icon id="side-btn" @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-            <v-spacer></v-spacer>
-            <!--<v-toolbar-title class="hdr-text" @click="serverDialog = true" :class="{uif: updateInfoFailed}">{{ hostname || activeServer}}</v-toolbar-title>-->
-            <v-spacer></v-spacer>
-
+            <v-card-text>监控系统</v-card-text>
             <more />
         </v-toolbar>
 
@@ -14,7 +11,6 @@
             <v-container fluid fill-height class="container" id="main-container">
                 <v-layout justify-center id="main-layout">
                 <v-flex id="main-flex">
-                    <!-- https://cn.vuejs.org/v2/api/#keep-alive -->
                     <keep-alive include="Resources">
                         <router-view></router-view>
                     </keep-alive>
