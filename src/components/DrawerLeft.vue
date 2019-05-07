@@ -74,12 +74,23 @@
 
         <!--content list-->
         <v-list v-if="!servers_visible">
+            <template v-for="item in items">
+                <v-list-tile>
+                    <v-list-tile-action>
+                        <icon>{{item.icon}}</icon>
+                    </v-list-tile-action>
+                    <v-list-tile-title>
+                        {{item.text}}
+                    </v-list-tile-title>
+                </v-list-tile>
+
+            </template>
             <v-list-tile @click="showResources">
                 <v-list-tile-action>
                     <icon>chart-line</icon>
                 </v-list-tile-action>
                 <v-list-tile-content>
-                    <v-list-tile-title> Resources</v-list-tile-title>
+                    <v-list-tile-title>Resources</v-list-tile-title>
                 </v-list-tile-content>
             </v-list-tile>
 
@@ -135,6 +146,38 @@
                 servers_visible: false,
                 addServerDialog: false,
                 clearServersDialog: false,
+                items : [
+                    { icon: 'contacts', text: 'Contacts' },
+                    { icon: 'history', text: 'Frequently contacted' },
+                    { icon: 'content_copy', text: 'Duplicates' },
+                    {
+                        icon: 'keyboard_arrow_up',
+                        'icon-alt': 'keyboard_arrow_down',
+                        text: 'Labels',
+                        model: true,
+                        children: [
+                            { icon: 'add', text: 'Create label' }
+                        ]
+                    },
+                    {
+                        icon: 'keyboard_arrow_up',
+                        'icon-alt': 'keyboard_arrow_down',
+                        text: 'More',
+                        model: false,
+                        children: [
+                            { text: 'Import' },
+                            { text: 'Export' },
+                            { text: 'Print' },
+                            { text: 'Undo changes' },
+                            { text: 'Other contacts' }
+                        ]
+                    },
+                    { icon: 'settings', text: 'Settings' },
+                    { icon: 'chat_bubble', text: 'Send feedback' },
+                    { icon: 'help', text: 'Help' },
+                    { icon: 'phonelink', text: 'App downloads' },
+                    { icon: 'keyboard', text: 'Go to the old version' }
+                ]
             }
         },
         mounted: function () {
@@ -143,7 +186,33 @@
             this.updateServers();
             this.updateHostnames();
         },
+
+        created () {
+            cm.bus.$on('changeContent', this.changeContentHandler);
+            cm.bus.$on('updateInfo', this.updateInfoHandler);
+        },
         methods: {
+
+            changeContentHandler (r) {
+                console.log("this.$router: ", this.$router);
+                switch (r) {
+                    case 'resources':
+                        this.$router.push('resources');
+                        break;
+                    case 'processes':
+                        this.$router.push('processes');
+                        break;
+                    case 'fs':
+                        this.$router.push('fs');
+                        break;
+                    case 'report':
+                        this.$router.push('report');
+                        break;
+                    default:
+                        console.log('unknow page to route: ', r);
+                }
+            },
+
             updateActiveServer() {
                 this.activeServer = cm.sapi.getActiveServer();
             },

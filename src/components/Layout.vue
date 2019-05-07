@@ -1,6 +1,8 @@
 <template>
     <v-app id="inspire">
-        <v-navigation-drawer v-model="drawer" clipped fixed app ><drawer-left /></v-navigation-drawer>
+        <v-navigation-drawer v-model="drawer" clipped fixed app >
+            <drawer-left />
+        </v-navigation-drawer>
         <v-toolbar app fixed clipped-left color="blue" dark>
             <v-toolbar-side-icon id="side-btn" @click.stop="drawer = !drawer"></v-toolbar-side-icon>
             <v-card-text>监控系统</v-card-text>
@@ -27,7 +29,9 @@
         <v-dialog v-model="serverDialog" width='400px'>
         	<v-card>
         		<server-info :hostname="hostname" :server="activeServer"></server-info>
-        		<v-card-actions><confirm-btns noLeft rightPrimary @clickRight="serverDialog = false"></confirm-btns></v-card-actions>
+        		<v-card-actions>
+                    <confirm-btns noLeft rightPrimary @clickRight="serverDialog = false"></confirm-btns>
+                </v-card-actions>
         	</v-card>
 		</v-dialog>
     </v-app>
@@ -54,49 +58,11 @@ export default {
             infoAll: null,
             serverDialog: false,
             activeServer: cm.sapi.getActiveServer(),
-            hostname: null,
-            updateInfoFailed: false,
+            hostname: null
         }
     },
     beforeCreate () {
     	cm.sapi.getActiveHostname(this);
-    },
-    created () {
-        cm.bus.$on('changeContent', this.changeContentHandler);
-        cm.bus.$on('updateInfo', this.updateInfoHandler);
-    },
-    methods: {
-        changeContentHandler (r) {
-        	console.log("this.$router: ", this.$router);
-            switch (r) {
-                case 'resources':
-                    this.$router.push('resources');
-                    break;
-                case 'processes':
-                    this.$router.push('processes');
-                    break;
-                case 'fs':
-                    this.$router.push('fs');
-                    break;
-                case 'report':
-                    this.$router.push('report');
-                    break;
-                default:
-                    console.log('unknow page to route: ', r);
-            }
-        },
-		updateInfoHandler(arg) {
-			switch(arg) {
-				case "success":
-					this.updateInfoFailed = false;
-					break;
-				case "failed":
-					this.updateInfoFailed = true;
-					break;
-				default:
-					console.log("updateInfoHandler: unknown status: ", arg);
-			}
-		}
     }
 }
 </script>
